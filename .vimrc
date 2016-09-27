@@ -17,7 +17,6 @@ set number                                                  "行番号を表示�
 set title                                                   "編集中のファイル名を表示
 set showmatch                                               "括弧入力時の対応する括弧を表示
 set ts=4 sw=4 et                                            "インデントをスペース4つ分に設定
-"set expandtab                                              "タブでスペースを使う
 set smartindent                                             "オートインデント
 set autoindent                                              "自動インデントを有効に
 set list                                                    "不可視文字の表示
@@ -27,7 +26,7 @@ set clipboard=unnamed,unnamedplus                           "クリップボー�
 set whichwrap=b,s,h,l,[,],<,>,~                             "左右のカーソル移動で行をまたいで移動
 set laststatus=2                                            "ステータス表示を2行にする
 set ignorecase                                              "大文字/小文字の区別なく検索する
-set smartcase                                               "検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase                                               "検索文字列に大文字が含まれる場合は区別して検索する
 set wrapscan                                                "検索時に最後まで行ったら最初に戻る
 set hlsearch                                                "検索文字列のハイライト
 set backspace=indent,eol,start
@@ -37,6 +36,7 @@ set noswapfile
 
 "plugins
 call plug#begin('~/.vim/plugged')
+
 "plugins are below
 Plug 'Shougo/unite.vim'                                     "環境
 Plug 'Shougo/neocomplete.vim'                               "補完機能
@@ -46,10 +46,8 @@ Plug 'scrooloose/nerdtree'                                  "ツリー表示
 Plug 'scrooloose/syntastic'                                 "文法、構文チェック
 Plug 'tpope/vim-fugitive'                                   "git関係
 Plug 't9md/vim-quickhl'                                     "ハイライト
-"Plug 'vim-visualstar'                                       "Visualモードで選択した文字列を検索
 Plug 'kien/ctrlp.vim'                                       "検索した結果をvimで開く
 Plug 'osyo-manga/vim-watchdogs'                             "文法チェック
-"Plug 'nathanaelkane/vim-indent-guides'                      "インデントガイド
 Plug 'vim-scripts/AnsiEsc.vim'                              "ログの情報を色付け
 Plug 'bronson/vim-trailing-whitespace'                      "行末の半角スペースを可視化
 Plug 'itchyny/lightline.vim'                                "ステータスバー改造
@@ -78,13 +76,3 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 """"""""""""""""""""""""""""""
-
-"vim-indent-guides
-
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_auto_colors=1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=black
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgray
-"let g:indent_guides_guide_size=2
-"let g:indent_guides_color_change_percent=1
-

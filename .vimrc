@@ -559,4 +559,3 @@ function! s:syntastic()
     SyntasticCheck
         call lightline#update()
 endfunction
-

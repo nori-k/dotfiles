@@ -26,6 +26,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -85,6 +86,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+autocmd StdinReadPre * set fileencodings=utf-8
 set bomb
 set binary
 set ttyfast
@@ -130,7 +132,10 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
-
+"" Cursor line visibility improvement
+set cursorline
+hi clear CursorLine
+hi CursorLineNr term=bold cterm=NONE ctermfg=darkgreen ctermbg=NONE
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
   colorscheme molokai
@@ -146,8 +151,12 @@ set display=lastline
 set mouse=a
 set clipboard=unnamed,unnamedplus
 set whichwrap=b,s,h,l,[,],<,>,~
+set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«
-"till here
+
+"" spellcheck
+"set spell
+"set spelllang=en,cjk
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")

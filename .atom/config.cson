@@ -1,0 +1,49 @@
+"*":
+  "atom-clock":
+    dateFormat: " DD MMM YYYY HH:mm "
+    showClockIcon: true
+  "atom-material-ui":
+    colors:
+      abaseColor: "#ffa726"
+      accentColor: "#9f6918"
+      genAccent: true
+      predefinedColor: "Orange"
+    tabs: {}
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+  core:
+    disabledPackages: [
+      "minimap-autohide"
+      "linter-php"
+      "linter-eslint"
+      "language-vue-component"
+      "atom-autocomplete-php"
+    ]
+    projectHome: "/Users/nori.k/Codes/Github"
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-monokai"
+    ]
+  editor:
+    fontFamily: "Ricty"
+    fontSize: 16
+    invisibles:
+      eol: "↵"
+    lineHeight: 1.2
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "10815d6d-df9e-7000-1e74-2084b8b200dc"
+  minimap:
+    ignoreWhitespacesInTokens: true
+    plugins:
+      "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
+  welcome:
+    showOnStartup: false

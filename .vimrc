@@ -42,6 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+Plug 'kana/vim-fakeclip'
 
 let g:make = 'gmake'
 if system('uname -o') =~ '^GNU/'
@@ -113,8 +114,8 @@ set ignorecase
 set smartcase
 
 "" Directories for swp files
-set nobackup
-set noswapfile
+"set nobackup
+"set noswapfile
 
 set fileformats=unix,dos,mac
 set showcmd

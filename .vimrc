@@ -43,6 +43,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'kana/vim-fakeclip'
+Plug 'edkolev/tmuxline.vim'
 
 let g:make = 'gmake'
 if system('uname -o') =~ '^GNU/'
@@ -141,6 +142,10 @@ let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
   colorscheme molokai
 endif
+
+""tmux status line settings
+let g:tmuxline_powerline_separators = 0
+
 
 set mousemodel=popup
 set t_Co=256
@@ -335,6 +340,12 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 1
+
+" ctrlp deconflict with lightline
+let g:ctrlp_buffer_func = {'enter': 'CtrlPEnter'}
+function! CtrlPEnter()
+      let w:lightline = 0
+endfunction
 
 " The Silver Searcher
 if executable('ag')

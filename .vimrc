@@ -69,6 +69,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
 
 " javascript
 "" Javascript Bundle
@@ -139,9 +140,6 @@ set cursorline
 hi clear CursorLine
 hi CursorLineNr term=bold cterm=NONE ctermfg=darkgreen ctermbg=NONE
 let no_buffers_menu=1
-if !exists('g:not_finish_vimplug')
-  colorscheme molokai
-endif
 
 ""tmux status line settings
 let g:tmuxline_powerline_separators = 0
@@ -151,6 +149,10 @@ set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
+
+if !exists('g:not_finish_vimplug')
+  colorscheme monokai
+endif
 
 "original
 set display=lastline
@@ -234,7 +236,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
+let g:NERDTreeWinSize = 30
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>

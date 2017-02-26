@@ -49,7 +49,7 @@ let g:make = 'gmake'
 if system('uname -o') =~ '^GNU/'
         let g:make = 'make'
 endif
-Plug 'Shougo/vimproc.vim', {'do': g:make}
+"Plug 'Shougo/vimproc.vim', {'do': g:make}
 
 "" Vim-Session
 Plug 'xolox/vim-misc'
@@ -101,7 +101,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 autocmd StdinReadPre * set fileencodings=utf-8
-set bomb
+set nobomb
 set binary
 set ttyfast
 

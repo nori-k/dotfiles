@@ -1,0 +1,86 @@
+###############################################################################
+##  Functional Plugin Settings
+###############################################################################
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = { 
+    \   'colorscheme': 'wombat'
+    \}
+'''
+
+[[Plugins]]
+repo = 'edkolev/tmuxline.vim'
+hook_add = 'let g:tmuxline_powerline_separators = 0'
+
+[[Plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    let g:NERDTreeChDirMode=2
+    let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+    let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+    let g:NERDTreeShowBookmarks=1
+    let g:nerdtree_tabs_focus_on_files=1
+    let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+    let g:NERDTreeWinSize = 30
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+    nnoremap <silent> <F2> :NERDTreeFind<CR>
+    noremap <F3> :NERDTreeToggle<CR>
+'''
+
+[[Plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[Plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[Plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+
+###############################################################################
+##  Language Plugin Settings
+##############################################################################
+
+[[plugins]] # Haml
+repo  = 'tpope/vim-haml'
+on_ft = 'haml'
+
+[[plugins]] # Html5
+repo  = 'othree/html5.vim'
+on_ft = 'html'
+
+[[plugins]] # Toml
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # Markdown
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = '''
+    let g:vim_markdown_frontmatter = 1
+    let g:vim_markdown_math = 1
+'''
+
+[[plugins]] # Golang
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]] # Japanese doc
+repo = 'vim-jp/vimdoc-ja'
+on_ft = 'help'
+hook_add = '''
+    set helplang=ja,en
+'''
+
+###############################################################################
+##  ColorScheme
+###############################################################################
+
+[[plugins]] 
+repo = 'sickill/vim-monokai'

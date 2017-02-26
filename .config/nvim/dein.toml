@@ -7,18 +7,78 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 
 [[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    let g:lightline = { 
-    \   'colorscheme': 'wombat'
-    \}
+    let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ 
+      \     [ 'mode', 'paste' ],
+      \     [ 'fugitive', 'filename' ],
+      \     [ 'ale' ],
+      \   ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'readonly': 'LightlineReadonly',
+      \   'modified': 'LightlineModified',
+      \   'filename': 'LightlineFilename',
+      \   'ale': 'ALEStatus',
+      \ }
+      \}
+
+function! LightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction
 '''
 
-[[Plugins]]
+[[plugins]]
 repo = 'edkolev/tmuxline.vim'
 hook_add = 'let g:tmuxline_powerline_separators = 0'
 
-[[Plugins]]
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
     let g:NERDTreeChDirMode=2
@@ -32,14 +92,33 @@ hook_add = '''
     nnoremap <silent> <F2> :NERDTreeFind<CR>
     noremap <F3> :NERDTreeToggle<CR>
 '''
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+    let g:ale_linters = {
+    \   'javascript': ['eslint'],
+    \   'python': ['flake8'],
+    \   'ruby': ['rubocop'],
+    \}
+    let g:ale_sign_column_always = 1
+    let g:ale_sign_error = '>>'
+    let g:ale_sign_warning = '--'
+    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+'''
 
-[[Plugins]]
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[Plugins]]
+[[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
-[[Plugins]]
+[[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
 
 
@@ -78,9 +157,32 @@ hook_add = '''
     set helplang=ja,en
 '''
 
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'lambdalisue/vim-pyenv'
+depends = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'andviro/flake8-vim'
+on_ft = 'python'
+
+
 ###############################################################################
 ##  ColorScheme
 ###############################################################################
 
 [[plugins]] 
 repo = 'sickill/vim-monokai'
+hook_add = 'au MyAutoCmd VimEnter * nested colorscheme monokai'

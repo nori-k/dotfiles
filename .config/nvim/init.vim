@@ -1,3 +1,53 @@
+if !&compatible
+  set nocompatible
+endif
+
+" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+
+"*****************************************************************************
+"" dein.vim
+"*****************************************************************************
+"" Plugin installing to dir below
+let s:dein_dir = expand('~/.cache/dein')
+"" dein.vim 
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+"" download dein.vim if it doesn't exist on current system.
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+"" start configuration
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  "" TOML file of plugin list
+  let g:rc_dir    = expand("~/.config/nvim/")
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  "" caching TOML file
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  "" finish configuration.
+  call dein#end()
+  call dein#save_state()
+endif
+
+"" if plugin in TOML file not installed, download and install.
+if dein#check_install()
+  call dein#install()
+endi
+
+
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
@@ -71,7 +121,6 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -166,41 +215,16 @@ nnoremap <Leader>o :.Gbrowse<CR>
 
 
 "*****************************************************************************
-"" dein.vim
+"" visualize full-width spaces
 "*****************************************************************************
-
-"" Plugin installing to dir below
-let s:dein_dir = expand('~/.cache/dein')
-"" dein.vim 
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-"" download dein.vim if it doesn't exist on current system.
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
-"" start configuration
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  "" TOML file of plugin list
-  let g:rc_dir    = expand("~/.config/nvim/")
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-  "" caching TOML file
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  "" finish configuration.
-  call dein#end()
-  call dein#save_state()
-endif
-
-"" if plugin in TOML file not installed, download and install.
-if dein#check_install()
-  call dein#install()
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=reverse ctermfg=DarkGray gui=reverse guifg=DarkGray
+endfunction
+if has('syntax')
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme * call ZenkakuSpace()
+        autocmd BufNew,BufRead * match ZenkakuSpace /　/
+    augroup END
+    call ZenkakuSpace()
 endif

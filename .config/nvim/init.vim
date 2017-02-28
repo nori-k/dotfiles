@@ -100,14 +100,14 @@ set cursorline
 hi clear CursorLine
 hi CursorLineNr term=bold cterm=NONE ctermfg=darkgreen ctermbg=NONE
 let no_buffers_menu=1
-
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-
-set mousemodel=popup
+"set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 set t_Co=256
+set mousemodel=popup
 set guioptions=egmrti
 set gfn=Monospace\ 10
 colorscheme monokai
+set termguicolors
+"set background=dark
 
 "" original
 set display=lastline

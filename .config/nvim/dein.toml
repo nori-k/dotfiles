@@ -99,8 +99,11 @@ hook_add = '''
 repo = 'w0rp/ale'
 hook_add = '''
     let g:ale_linters = {
+    \   'c': ['clang'],
+    \   'c++': ['clang'],
     \   'javascript': ['eslint'],
     \   'typescript': ['tslint'],
+    \   'php': ['php -l'],
     \   'python': ['flake8'],
     \   'ruby': ['rubocop'],
     \}

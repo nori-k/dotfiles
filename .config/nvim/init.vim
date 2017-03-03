@@ -83,7 +83,7 @@ set smartcase
 
 "" Directories for swp files
 "set nobackup
-"set noswapfile
+set noswapfile
 
 set fileformats=unix,dos,mac
 set showcmd

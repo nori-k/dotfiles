@@ -10,7 +10,7 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']

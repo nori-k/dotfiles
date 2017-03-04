@@ -101,7 +101,8 @@ hi clear CursorLine
 hi CursorLineNr term=bold cterm=NONE ctermfg=darkgreen ctermbg=NONE
 let no_buffers_menu=1
 "set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-set t_Co=256
+set t_Co=25
+"xterm-256color
 set mousemodel=popup
 set guioptions=egmrti
 set gfn=Monospace\ 10
@@ -201,6 +202,12 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
+
+"" Kill Allow keys on Normal Mode
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv

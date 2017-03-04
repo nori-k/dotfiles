@@ -7,13 +7,10 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -128,6 +125,26 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
 
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/neopairs.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+
+
 #[[plugins]]
 #repo = 'Shougo/denite'
 
@@ -152,14 +169,46 @@ on_ft = 'toml'
 
 [[plugins]] # Markdown
 repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
+on_ft = ['markdown','mkd','md']
 hook_add = '''
     let g:vim_markdown_frontmatter = 1
     let g:vim_markdown_math = 1
 '''
 
+[[plugins]] #vimscript
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'mhartington/deoplete-typescript'
+on_ft = 'typescript'
+
+[[plugins]] # c, c++, obj-C
+repo = 'Rip-Rip/clang_complete'
+on_ft = ['clang','c','cpp','c++','obj-c','objc','objcpp','objective-c','objective-c++']
+
+[[plugins]]
+repo = 'tweekmonster/deoplete-clang2'
+on_ft = ['clang','c','cpp','c++','obj-c']
+
+[[plugins]]
+repo = 'Robzz/deoplete-omnisharp'
+on_ft = 'c#'
+
+[[plugins]]
+repo = 'landaire/deoplete-swift'
+on_ft = 'swift'
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+
 [[plugins]] # Golang
 repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]] #Golang
+repo = 'zchee/deoplete-go'
 on_ft = 'go'
 
 [[plugins]] # Japanese doc
@@ -177,18 +226,13 @@ on_ft = 'python'
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
-#[[plugins]] # Python
-#repo = 'lambdalisue/vim-pyenv'
-#depends = 'davidhalter/jedi-vim'
-#on_ft = 'python'
-
-#[[plugins]] # Python
-#repo = 'jmcantrell/vim-virtualenv'
-#on_ft = 'python'
-
 [[plugins]] # Python
 repo = 'andviro/flake8-vim'
 on_ft = 'python'
+
+[[plugins]]
+repo = 'php-vim/phpcd.vim'
+on_ft = 'php'
 
 
 ###############################################################################

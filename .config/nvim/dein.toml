@@ -143,6 +143,9 @@ repo = 'Shougo/neopairs.vim'
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
 
 
 #[[plugins]]

@@ -82,7 +82,7 @@ hook_add = '''
     \'a' :'#(whoami)',
     \'b' :'#S',
     \'x' :'#(getwifi.sh)',
-    \'y' :'#(battery -t)',
+    \'y' :'#(battery -tp)',
     \'z' :['#h'],
     \}
 '''

@@ -18,7 +18,7 @@ hook_add = '''
     let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [ 
+      \   'left': [
       \     [ 'mode', 'paste' ],
       \     [ 'fugitive', 'filename' ],
       \     [ 'ale' ],
@@ -59,7 +59,7 @@ function! LightlineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
     return branch !=# '' ? '⭠ '.branch : ''
-  endif
+ endif
   return ''
 endfunction
 
@@ -76,7 +76,16 @@ endfunction
 
 [[plugins]]
 repo = 'edkolev/tmuxline.vim'
-hook_add = 'let g:tmuxline_powerline_separators = 0'
+hook_add = '''
+    let g:tmuxline_powerline_separators = 0
+    let g:tmuxline_preset = {
+    \'a' :'#(whoami)',
+    \'b' :'#S',
+    \'x' :'#(getwifi.sh)',
+    \'y' :'#(battery -t)',
+    \'z' :['#h'],
+    \}
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -242,6 +251,10 @@ on_ft = 'php'
 ##  ColorScheme
 ###############################################################################
 
-[[plugins]] 
+[[plugins]]
 repo = 'sickill/vim-monokai'
 hook_add = 'au MyAutoCmd VimEnter * nested colorscheme monokai'
+
+[[plugins]]
+repo = 'vim-scripts/Zenburn'
+#hook_add = 'au MyAutoCmd VimEnter * nested colorscheme zenburn'

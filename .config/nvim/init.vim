@@ -108,6 +108,12 @@ set guioptions=egmrti
 set gfn=Monospace\ 10
 colorscheme monokai
 set termguicolors
+if has('patch-7.4.1778')
+  set guicolors
+endif
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 "set background=dark
 
 "" original

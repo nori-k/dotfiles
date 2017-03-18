@@ -79,11 +79,11 @@ repo = 'edkolev/tmuxline.vim'
 hook_add = '''
     let g:tmuxline_powerline_separators = 0
     let g:tmuxline_preset = {
-    \'a' :'#(whoami)',
+    \'a' :'#h',
     \'b' :'#S',
     \'x' :'#(getwifi.sh)',
-    \'y' :'#(battery -tp)',
-    \'z' :['#h'],
+    \'y' :['#(battery -tp)','#(whoami)'],
+    \'z' :['#(date -R)'],
     \}
 '''
 
@@ -258,3 +258,9 @@ hook_add = 'au MyAutoCmd VimEnter * nested colorscheme monokai'
 [[plugins]]
 repo = 'vim-scripts/Zenburn'
 #hook_add = 'au MyAutoCmd VimEnter * nested colorscheme zenburn'
+
+[[plugins]]
+repo = 'aereal/vim-colors-japanesque'
+#hook_add = 'au MyAutoCmd VimEnter * nested colorscheme japanesque'
+
+

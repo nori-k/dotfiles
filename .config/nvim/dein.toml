@@ -1,4 +1,4 @@
-###############################################################################
+#'##############################################################################
 ##  Functional Plugin Settings
 ###############################################################################
 
@@ -18,7 +18,7 @@ hook_add = '''
     let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [
+     \   'left': [
       \     [ 'mode', 'paste' ],
       \     [ 'fugitive', 'filename' ],
       \     [ 'ale' ],
@@ -193,54 +193,54 @@ on_ft = 'vim'
 
 [[plugins]]
 repo = 'mhartington/deoplete-typescript'
-on_ft = 'typescript'
+on_ft = ['typescript', 'ts']
 
-[[plugins]] # c, c++, obj-C
-repo = 'Rip-Rip/clang_complete'
-on_ft = ['clang','c','cpp','c++','obj-c','objc','objcpp','objective-c','objective-c++']
+#[[plugins]] # c, c++, obj-C
+#repo = 'Rip-Rip/clang_complete'
+#on_ft = ['clang','c','cpp','c++','obj-c','objc','objcpp','objective-c','objective-c++']
 
-[[plugins]]
-repo = 'tweekmonster/deoplete-clang2'
-on_ft = ['clang','c','cpp','c++','obj-c']
+#[[plugins]]
+#repo = 'tweekmonster/deoplete-clang2'
+#on_ft = ['clang','c','cpp','c++','obj-c']
 
-[[plugins]]
-repo = 'Robzz/deoplete-omnisharp'
-on_ft = 'c#'
+#[[plugins]]
+#repo = 'Robzz/deoplete-omnisharp'
+#on_ft = 'c#'
 
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-on_ft = 'swift'
+#[[plugins]]
+#repo = 'landaire/deoplete-swift'
+#on_ft = 'swift'
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 
-[[plugins]] # Golang
-repo = 'fatih/vim-go'
-on_ft = 'go'
+#[[plugins]] # Golang
+#repo = 'fatih/vim-go'
+#on_ft = 'go'
 
-[[plugins]] #Golang
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
+#[[plugins]] #Golang
+#repo = 'zchee/deoplete-go'
+#on_ft = 'go'
 
-[[plugins]] # Japanese doc
-repo = 'vim-jp/vimdoc-ja'
-on_ft = 'help'
-hook_add = '''
-    set helplang=ja,en
-'''
+#[[plugins]] # Japanese doc
+#repo = 'vim-jp/vimdoc-ja'
+#on_ft = 'help'
+#hook_add = '''
+#    set helplang=ja,en
+#'''
 
-[[plugins]] # Python
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = 'python'
+#[[plugins]] # Python
+#repo = 'hynek/vim-python-pep8-indent'
+#on_ft = 'python'
 
-[[plugins]] # Python
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
+#[[plugins]] # Python
+#repo = 'davidhalter/jedi-vim'
+#on_ft = 'python'
 
-[[plugins]] # Python
-repo = 'andviro/flake8-vim'
-on_ft = 'python'
+#[[plugins]] # Python
+#repo = 'andviro/flake8-vim'
+#on_ft = 'python'
 
 [[plugins]]
 repo = 'php-vim/phpcd.vim'

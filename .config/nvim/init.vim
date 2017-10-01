@@ -45,7 +45,7 @@ endif
 "" if plugin in TOML file not installed, download and install.
 if dein#check_install()
   call dein#install()
-endi
+endif
 
 
 "*****************************************************************************
